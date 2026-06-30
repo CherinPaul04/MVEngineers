@@ -901,16 +901,20 @@ function Projects() {
 
   return (
     <>
-      <section id="projects" style={{ padding: "100px 24px", background: "linear-gradient(180deg, #f0f6ff 0%, #fbfdff 100%)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section id="projects" style={{ padding: "100px 24px", background: "#0a111a", position: "relative", overflow: "hidden" }}>
+        {/* Dark orbs */}
+        <div className="orb" style={{ width: 500, height: 500, background: "#2666a2", top: "-8%", right: "-5%", opacity: 0.10 }} />
+        <div className="orb" style={{ width: 300, height: 300, background: "#06b6d4", bottom: "5%", left: "-5%", opacity: 0.07, animationDelay: "3s" }} />
+
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <AnimatedSection>
             <div style={{ marginBottom: 56, maxWidth: 560 }}>
               <span className="section-eyebrow">Portfolio</span>
-              <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 700, color: "#0f1e32", margin: "10px 0 16px", lineHeight: 1.2 }}>
+              <h2 className="font-display" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 700, color: "#fff", margin: "10px 0 16px", lineHeight: 1.2 }}>
                 Recent Projects
               </h2>
               <div className="accent-line" style={{ marginBottom: 16 }} />
-              <p style={{ color: "#4a6080", lineHeight: 1.7, fontSize: "1rem" }}>
+              <p style={{ color: "#97badf", lineHeight: 1.7, fontSize: "1rem", fontWeight: 300 }}>
                 Tooling solutions delivered to India's leading two-wheeler OEMs, EV manufacturers, and Tier-I suppliers.
               </p>
             </div>
@@ -923,15 +927,15 @@ function Projects() {
                 className={`fade-up card-hover ${visibleItems.includes(i) ? "visible" : ""}`}
                 style={{
                   borderRadius: 16, overflow: "hidden",
-                  background: "#fff",
-                  border: "1px solid rgba(209,226,248,0.7)",
-                  boxShadow: "0 2px 20px rgba(38,102,162,0.06)",
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(151,186,223,0.15)",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
                 }}
               >
                 {/* Image frame */}
                 <div
                   className="project-frame"
-                  style={{ height: 160, background: proj.color, border: proj.img ? 'none' : undefined, cursor: proj.img ? 'pointer' : 'default' }}
+                  style={{ height: 160, background: proj.img ? 'transparent' : 'rgba(38,102,162,0.15)', border: proj.img ? 'none' : '2px dashed rgba(151,186,223,0.2)', cursor: proj.img ? 'pointer' : 'default' }}
                   onClick={() => { if (proj.img) setActiveProjectImage(proj.img); }}
                 >
                   {proj.img ? (
@@ -939,10 +943,10 @@ function Projects() {
                   ) : (
                     <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 16px" }}>
                       <IconLayers />
-                      <div style={{ fontSize: "0.72rem", color: "#3a5a80", marginTop: 6, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                      <div style={{ fontSize: "0.72rem", color: "#97badf", marginTop: 6, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                         Tooling Photo
                       </div>
-                      <div style={{ fontSize: "0.66rem", color: "#97badf", marginTop: 2 }}>Project image asset</div>
+                      <div style={{ fontSize: "0.66rem", color: "#4a6080", marginTop: 2 }}>Project image asset</div>
                     </div>
                   )}
                 </div>
@@ -950,10 +954,10 @@ function Projects() {
                 {/* Card body */}
                 <div style={{ padding: "20px 20px 22px" }}>
                   <div style={{ fontSize: "0.72rem", color: "#06b6d4", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>{proj.cat}</div>
-                  <h3 className="font-display" style={{ fontSize: "0.98rem", fontWeight: 700, color: "#0f1e32", margin: "0 0 8px", lineHeight: 1.3 }}>{proj.title}</h3>
+                  <h3 className="font-display" style={{ fontSize: "0.98rem", fontWeight: 700, color: "#e2eaf6", margin: "0 0 8px", lineHeight: 1.3 }}>{proj.title}</h3>
                   <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#2666a2", flexShrink: 0 }} />
-                    <span style={{ fontSize: "0.82rem", color: "#4a6080", fontWeight: 500 }}>{proj.client}</span>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#06b6d4", flexShrink: 0 }} />
+                    <span style={{ fontSize: "0.82rem", color: "#97badf", fontWeight: 500 }}>{proj.client}</span>
                   </div>
                 </div>
               </div>
